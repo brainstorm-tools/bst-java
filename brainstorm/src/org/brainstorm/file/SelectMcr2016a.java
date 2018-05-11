@@ -1,0 +1,104 @@
+package org.brainstorm.file;
+
+import javax.swing.*;
+import java.io.*;
+
+/**
+ * @author Francois Tadel
+ */
+public class SelectMcr2016a {
+    // ===== CONSTRUCTOR =====
+    public SelectMcr2016a(){     
+    }
+    
+    // ===== MAIN =====
+    public static void main(String[] args) throws Exception {
+        // ===== READ $HOME/MATLABROOT.txt =====
+        // Build filename
+        String userDir = System.getProperty("user.home");
+        File confFile = new File(userDir + "/.brainstorm/MATLABROOT901.txt");
+        String mcrDir = "";
+        // Read file
+        if (confFile.isFile()){
+            try {
+                BufferedReader in = new BufferedReader(new FileReader(confFile));
+                String str = in.readLine();
+                in.close();
+                if ((str != null) && (str.length() != 0)){
+                    mcrDir = str;
+                }
+            } catch (IOException e){
+            }
+        }
+
+        // ===== SELECT FOLDER =====
+        // Set system look&feel
+        try {
+            UIManager.setLookAndFeel(
+            UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e){
+            
+        }
+        // Message box
+        JOptionPane.showMessageDialog(null, 
+                "To execute the Brainstorm binaries, you need to install the\n" +
+                "Matlab Runtime 9.0.1 on your computer (MCR Matlab R2016a).\n\n" +
+                "The MCR is available from the Mathworks website:\n" + 
+                "> google \"download matlab mcr\".\n\n" + 
+                "Now, select the installation folder of the MCR 9.0.1. Examples:\n" +
+                "    - Linux:  /usr/local/Matlab_Runtime/v901\n" +
+                "    - Linux:  $HOME/MCR_R2016a\n" + 
+                "    - MacOSX: /Applications/MATLAB/MATLAB_Runtime/v901\n" +
+                "    - Windows: C:\\Program Files\\MATLAB\\MATLAB Runtime\\v901\n");
+
+        // Show dialog box
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Select Matlab Runtime folder (9.0.1)");
+        fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        fileChooser.setMultiSelectionEnabled(false);
+        if (mcrDir.length() > 1){
+            fileChooser.setCurrentDirectory(new File(mcrDir));
+        }
+        int retval = fileChooser.showOpenDialog(null);
+        if (retval != JFileChooser.APPROVE_OPTION) {
+            JOptionPane.showMessageDialog(null, "Operation canceled by user.");
+            System.exit(-1);
+        }
+        // Get filename
+        mcrDir = fileChooser.getSelectedFile().getAbsolutePath();
+        if (mcrDir.length() == 0){
+            System.exit(-1);
+        }
+        
+        // ===== DETECT MCR =====
+        if (!(new File(mcrDir + "/bin/maci64/libnativedl.jnilib")).isFile() &&
+            !(new File(mcrDir + "/bin/maci64/libnativedl.dylib")).isFile() &&
+            !(new File(mcrDir + "/bin/win32/mcr.dll")).isFile() &&
+            !(new File(mcrDir + "/bin/win64/mcr.dll")).isFile() &&   
+            !(new File(mcrDir + "/bin/glnx86/libnativedl.so")).isFile() &&  
+            !(new File(mcrDir + "/bin/glnxa64/libnativedl.so")).isFile()){
+            JOptionPane.showMessageDialog(null, "Not a valid Matlab Runtime 9.1 installation folder");
+            System.exit(-1);
+        }
+        
+        // ===== SAVE RESULT IN FILE =====
+        // Create folder if necessary
+        try {
+            confFile.getParentFile().mkdirs();
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Could not create folder: \n" + confFile.getParent());
+            System.exit(-1);
+        }
+        // Write file
+        try {
+            PrintWriter out = new PrintWriter(new FileWriter(confFile));
+            out.println(mcrDir);
+            out.close();
+        } catch (IOException e){
+            JOptionPane.showMessageDialog(null, "Could not create folder: \n" + confFile.getParent());
+            System.exit(-1);
+        }
+        // Success
+        System.exit(0);
+    }
+}
