@@ -305,8 +305,8 @@ public class TestClass {
     // ===== TEST DOWNLOAD =====
     public static void TestDownload(){
         // Download file
-        // String srcUrl  = "http://neuroimage.usc.edu/brainstorm3_register/getupdate.php?c=UbsM09";
-        String srcUrl  = "http://neuroimage.usc.edu/brainstorm3_register/getupdate.php?t=Infant7w";
+        // String srcUrl  = "https://neuroimage.usc.edu/brainstorm3_register/getupdate.php?c=UbsM09";
+        String srcUrl  = "https://neuroimage.usc.edu/brainstorm3_register/getupdate.php?t=Infant7w";
         final BstDownload bstDownload = new BstDownload(srcUrl, "C:\\Users\\francois\\Downloads\\test.zip", "Download test");
         
         bstDownload.download();

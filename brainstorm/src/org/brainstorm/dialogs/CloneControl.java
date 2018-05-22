@@ -25,7 +25,7 @@ public class CloneControl {
             // Get username and password
             String [] list = {"<HTML>You got this version of Brainstorm from GitHub.<BR><BR>" + 
                     "Please take a minute to register on our website before using the software:<BR>" +
-                    "http://neuroimage.usc.edu/brainstorm > Download > Create an account now<BR><BR><FONT color='#999999'>" + 
+                    "https://neuroimage.usc.edu/brainstorm > Download > Create an account now<BR><BR><FONT color='#999999'>" + 
                     "This project is supported by public grants. Keeping track of usage demographics <BR>" +
                     "is key to document the impact of Brainstorm and obtain continued support.<BR>" + 
                     "Please take a moment to create a free account - thank you.</FONT><BR><BR>" +
@@ -41,7 +41,7 @@ public class CloneControl {
             // Contact server
             try {
                 // Create HTTP connection
-                URL url = new URL("http://neuroimage.usc.edu/bst/check_user.php");
+                URL url = new URL("https://neuroimage.usc.edu/bst/check_user.php");
                 URLConnection con = url.openConnection();
                 HttpURLConnection http = (HttpURLConnection)con;
                 http.setRequestMethod("POST");
@@ -66,7 +66,7 @@ public class CloneControl {
 
             // Check server response
             if (response == null) {
-                MsgServer.dlgError(null, "Cannot connect to http://neuroimage.usc.edu", "Identification error");
+                MsgServer.dlgError(null, "Cannot connect to https://neuroimage.usc.edu", "Identification error");
                 status = 0;
             }else if (response.compareTo("1") == 0){
                 status = 1;
