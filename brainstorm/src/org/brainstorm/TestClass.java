@@ -325,6 +325,17 @@ public class TestClass {
             JOptionPane.showMessageDialog(null, bstDownload.getMessage(), "Download file", JOptionPane.OK_OPTION);
         }
     }
+    
+    // ===== TEST HOTKEY DIALOG =====
+    public static void TestHotkeyDialog(){
+        HotkeyDialog dialog = new HotkeyDialog();
+        if (dialog.hasKey()) {
+            char key = dialog.getKey();
+            System.out.println("Chosen key: " + key);
+        } else {
+            System.out.println("No key chosen.");
+        }
+    }
 
 
     // ===== MAIN =====
@@ -342,7 +353,8 @@ public class TestClass {
                 // TestDownload();
                 //TestListWindow();
                 // TestCheckListWindow();
-                TestTreeWindow();
+                //TestTreeWindow();
+                TestHotkeyDialog();
                 // TestTreeTableWindow();
                 //CloneControl.probe("C:\\Work\\Dev\\brainstorm_git\\brainstorm3");
                 

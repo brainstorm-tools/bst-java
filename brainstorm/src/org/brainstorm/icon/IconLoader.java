@@ -211,6 +211,7 @@ public class IconLoader {
     public static final ImageIcon ICON_TS_SYNCRO     = createImageIcon("icon/iconTSSynchro.gif");
     public static final ImageIcon ICON_FLIPY         = createImageIcon("icon/iconFlipY.gif");
     public static final ImageIcon ICON_ALLCOMP       = createImageIcon("icon/iconAllComp.gif");
+    public static final ImageIcon ICON_KEYBOARD      = createImageIcon("icon/iconKeyboard.gif");
     
     // New
     public static final ImageIcon ICON_EEG_NEW     = createImageIcon("icon/iconEegNew.gif");
