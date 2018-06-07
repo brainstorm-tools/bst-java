@@ -1,11 +1,13 @@
 package org.brainstorm.dialogs;
 
+import java.awt.Font;
 import java.awt.KeyEventDispatcher;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,10 +18,12 @@ public class HotkeyDialog extends JOptionPane
         implements KeyEventDispatcher, WindowListener
 {
     private Character key;
+    private Font jFontText;
     private JDialog dialog;
     
-    public HotkeyDialog() {
+    public HotkeyDialog(int fontSize) {
         this.key = null;
+        this.jFontText = new Font("Dialog", java.awt.Font.PLAIN, fontSize);
         this.init();
     }
     
@@ -27,9 +31,12 @@ public class HotkeyDialog extends JOptionPane
         // Create key listener
         KeyboardFocusManager.getCurrentKeyboardFocusManager()
                 .addKeyEventDispatcher(this);
+        // Create text label
+        JLabel label = new JLabel("Please enter a new shortcut key (B to Z).");
+        label.setFont(this.jFontText);
         // Create dialog
         JOptionPane optionPane = new JOptionPane(
-                "Please enter a new shortcut key (B to Z).",
+                label,
                 JOptionPane.QUESTION_MESSAGE,
                 JOptionPane.DEFAULT_OPTION,
                 null,

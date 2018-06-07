@@ -328,7 +328,7 @@ public class TestClass {
     
     // ===== TEST HOTKEY DIALOG =====
     public static void TestHotkeyDialog(){
-        HotkeyDialog dialog = new HotkeyDialog();
+        HotkeyDialog dialog = new HotkeyDialog(12);
         if (dialog.hasKey()) {
             char key = dialog.getKey();
             System.out.println("Chosen key: " + key);

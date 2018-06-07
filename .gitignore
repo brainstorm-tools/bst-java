@@ -1,4 +1,4 @@
-*.properties
+**.properties
 build-impl.xml
 /brainstorm/build/
 /brainstorm/dist/
