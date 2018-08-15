@@ -305,8 +305,8 @@ public class TestClass {
     // ===== TEST DOWNLOAD =====
     public static void TestDownload(){
         // Download file
-        // String srcUrl  = "https://neuroimage.usc.edu/brainstorm3_register/getupdate.php?c=UbsM09";
-        String srcUrl  = "https://neuroimage.usc.edu/brainstorm3_register/getupdate.php?t=Infant7w";
+        String srcUrl  = "https://neuroimage.usc.edu/bst/getupdate.php?c=UbsM09";
+        //String srcUrl  = "https://github.com/csn-le/wave_clus/archive/master.zip";
         final BstDownload bstDownload = new BstDownload(srcUrl, "C:\\Users\\francois\\Downloads\\test.zip", "Download test");
         
         bstDownload.download();
@@ -322,7 +322,7 @@ public class TestClass {
         if (bstDownload.getResult() != 1){
             JOptionPane.showMessageDialog(null, "Error downloading file: \n" + bstDownload.getMessage(), "Download file", JOptionPane.WARNING_MESSAGE);
         }else{
-            JOptionPane.showMessageDialog(null, bstDownload.getMessage(), "Download file", JOptionPane.OK_OPTION);
+            JOptionPane.showMessageDialog(null, "File successfully downloaded!", "Download file", JOptionPane.OK_OPTION);
         }
     }
     
@@ -350,11 +350,11 @@ public class TestClass {
                 //TestTableWindow();
                 // TestFileSelector();
                 // TestDialog();
-                // TestDownload();
+                TestDownload();
                 //TestListWindow();
                 // TestCheckListWindow();
                 //TestTreeWindow();
-                TestHotkeyDialog();
+                //TestHotkeyDialog();
                 // TestTreeTableWindow();
                 //CloneControl.probe("C:\\Work\\Dev\\brainstorm_git\\brainstorm3");
                 

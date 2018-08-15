@@ -8,6 +8,8 @@ import java.awt.event.*;
 import java.security.SecureRandom;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 import se.datadosen.component.RiverLayout;
 
 /**
@@ -210,16 +212,6 @@ public class BstDownload {
         // Open connection to URL
         HttpURLConnection connection;
         if (url.getProtocol().equals("https")) {
-            // If https is requested, ensure we use latest TLS version since
-            // some websites disable older versions for security issues.
-
-            // This is only supported in Java v1.7+
-            double version = Double.parseDouble(System.getProperty("java.specification.version"));
-            if (version < 1.7) {
-                message = "HTTPS connections require Java 1.7. Please update Java.";
-                throw new Exception("ConnectionError");
-            }
-
             HttpsURLConnection tlsConnection;
 
             if (proxy != null){
@@ -228,9 +220,42 @@ public class BstDownload {
                 tlsConnection = (HttpsURLConnection) url.openConnection();
             }
 
-            SSLContext ssl = SSLContext.getInstance("TLSv1.2"); 
-            ssl.init(null, null, new SecureRandom());                
-            tlsConnection.setSSLSocketFactory(ssl.getSocketFactory());
+            // If https is requested, ensure we use latest TLS version since
+            // some websites disable older versions for security issues.
+            
+            // This is only supported in Java v1.7+
+            double version = Double.parseDouble(System.getProperty("java.specification.version"));
+            if (version >= 1.7) {
+                SSLContext ssl = SSLContext.getInstance("TLSv1.2");
+                ssl.init(null, null, new SecureRandom());
+                tlsConnection.setSSLSocketFactory(ssl.getSocketFactory());
+            } else {
+                // GitHub requires the latest TLS version.
+                if (url.getHost().equals("github.com")) {
+                    message = "HTTPS connections to GitHub require Java 1.7. Please update Java.";
+                    throw new Exception("ConnectionError");
+                }
+                
+                // Create a trust all certificate checker because early Java 1.6
+                // versions are too strict for our own neuroimage.usc.edu domain
+                TrustManager[] trustAllCerts = new TrustManager[] {
+                    new X509TrustManager() {
+                        @Override
+                        public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+                            return null;
+                        }
+                        @Override
+                        public void checkClientTrusted(java.security.cert.X509Certificate[] certs, String authType) {}
+                        @Override
+                        public void checkServerTrusted(java.security.cert.X509Certificate[] certs, String authType) {}
+                    }
+                };
+                
+                SSLContext ssl = SSLContext.getInstance("SSL");
+                ssl.init(null, trustAllCerts, null);
+                tlsConnection.setSSLSocketFactory(ssl.getSocketFactory());
+            }
+
             connection = tlsConnection;
         } else {
             if (proxy != null){
