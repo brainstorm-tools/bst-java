@@ -126,7 +126,7 @@ public class BstDownload {
     
     // Download thread
     public void downloadThread(Proxy proxy){
-        RandomAccessFile file = null;
+        OutputStream file = null;
         InputStream stream = null;
         int downloaded = 0;
         
@@ -156,7 +156,7 @@ public class BstDownload {
             jProgressBar.setMaximum(contentLength);
 
             // Open output file
-            file = new RandomAccessFile(outputFile, "rws");
+            file = new FileOutputStream(outputFile);
             stream = connection.getInputStream();
             isDownloading = true;
 
