@@ -36,9 +36,20 @@ public class BstDownload {
         // ===== COPY ARGUMENTS =====
         // Output filename
         outputFile = file;
+        // Old versions of Matlab default to a weird ICE library URL Handler
+        // that causes HTTPS issues. Force usage of proper Handler if possible.
+        URLStreamHandler handler = null;
+        if (strUrl.toLowerCase().startsWith("https"))
+        {
+            try {
+                handler = new sun.net.www.protocol.https.Handler();
+            } catch (Exception e) {
+                handler = null;
+            }
+        }
         // Input URL
         try{
-            url = new java.net.URL(strUrl);
+            url = new java.net.URL(null, strUrl, handler);
         }
         catch (Exception e){
             jLabel.setText("Error: Invalid URL.");
