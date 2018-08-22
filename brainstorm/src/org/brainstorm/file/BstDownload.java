@@ -8,6 +8,8 @@ import java.awt.event.*;
 import java.security.SecureRandom;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 import se.datadosen.component.RiverLayout;
 
 /**
@@ -34,9 +36,20 @@ public class BstDownload {
         // ===== COPY ARGUMENTS =====
         // Output filename
         outputFile = file;
+        // Old versions of Matlab default to a weird ICE library URL Handler
+        // that causes HTTPS issues. Force usage of proper Handler if possible.
+        URLStreamHandler handler = null;
+        if (strUrl.toLowerCase().startsWith("https"))
+        {
+            try {
+                handler = new sun.net.www.protocol.https.Handler();
+            } catch (Exception e) {
+                handler = null;
+            }
+        }
         // Input URL
         try{
-            url = new java.net.URL(strUrl);
+            url = new java.net.URL(null, strUrl, handler);
         }
         catch (Exception e){
             jLabel.setText("Error: Invalid URL.");
@@ -124,7 +137,7 @@ public class BstDownload {
     
     // Download thread
     public void downloadThread(Proxy proxy){
-        RandomAccessFile file = null;
+        OutputStream file = null;
         InputStream stream = null;
         int downloaded = 0;
         
@@ -154,7 +167,7 @@ public class BstDownload {
             jProgressBar.setMaximum(contentLength);
 
             // Open output file
-            file = new RandomAccessFile(outputFile, "rws");
+            file = new FileOutputStream(outputFile);
             stream = connection.getInputStream();
             isDownloading = true;
 
@@ -210,16 +223,6 @@ public class BstDownload {
         // Open connection to URL
         HttpURLConnection connection;
         if (url.getProtocol().equals("https")) {
-            // If https is requested, ensure we use latest TLS version since
-            // some websites disable older versions for security issues.
-
-            // This is only supported in Java v1.7+
-            double version = Double.parseDouble(System.getProperty("java.specification.version"));
-            if (version < 1.7) {
-                message = "HTTPS connections require Java 1.7. Please update Java.";
-                throw new Exception("ConnectionError");
-            }
-
             HttpsURLConnection tlsConnection;
 
             if (proxy != null){
@@ -228,9 +231,42 @@ public class BstDownload {
                 tlsConnection = (HttpsURLConnection) url.openConnection();
             }
 
-            SSLContext ssl = SSLContext.getInstance("TLSv1.2"); 
-            ssl.init(null, null, new SecureRandom());                
-            tlsConnection.setSSLSocketFactory(ssl.getSocketFactory());
+            // If https is requested, ensure we use latest TLS version since
+            // some websites disable older versions for security issues.
+            
+            // This is only supported in Java v1.7+
+            double version = Double.parseDouble(System.getProperty("java.specification.version"));
+            if (version >= 1.7) {
+                SSLContext ssl = SSLContext.getInstance("TLSv1.2");
+                ssl.init(null, null, new SecureRandom());
+                tlsConnection.setSSLSocketFactory(ssl.getSocketFactory());
+            } else {
+                // GitHub requires the latest TLS version.
+                if (url.getHost().equals("github.com")) {
+                    message = "HTTPS connections to GitHub require Java 1.7. Please update Java.";
+                    throw new Exception("ConnectionError");
+                }
+                
+                // Create a trust all certificate checker because early Java 1.6
+                // versions are too strict for our own neuroimage.usc.edu domain
+                TrustManager[] trustAllCerts = new TrustManager[] {
+                    new X509TrustManager() {
+                        @Override
+                        public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+                            return null;
+                        }
+                        @Override
+                        public void checkClientTrusted(java.security.cert.X509Certificate[] certs, String authType) {}
+                        @Override
+                        public void checkServerTrusted(java.security.cert.X509Certificate[] certs, String authType) {}
+                    }
+                };
+                
+                SSLContext ssl = SSLContext.getInstance("SSL");
+                ssl.init(null, trustAllCerts, null);
+                tlsConnection.setSSLSocketFactory(ssl.getSocketFactory());
+            }
+
             connection = tlsConnection;
         } else {
             if (proxy != null){
