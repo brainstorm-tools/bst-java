@@ -2,6 +2,7 @@ package org.brainstorm.dialogs;
 
 import java.net.*;
 import java.io.*;
+import org.brainstorm.file.BstDownload;
 
 /**
  * @author Francois Tadel
@@ -41,9 +42,8 @@ public class CloneControl {
             // Contact server
             try {
                 // Create HTTP connection
-                URL url = new URL("https://neuroimage.usc.edu/bst/check_user.php");
-                URLConnection con = url.openConnection();
-                HttpURLConnection http = (HttpURLConnection)con;
+                URL url = BstDownload.createUrl("https://neuroimage.usc.edu/bst/check_user.php");
+                HttpURLConnection http = BstDownload.openHttpsConnection(url, null);
                 http.setRequestMethod("POST");
                 http.setDoOutput(true);
 
@@ -60,7 +60,7 @@ public class CloneControl {
                 BufferedReader in = new BufferedReader(new InputStreamReader(http.getInputStream()));
                 response = in.readLine();
                 in.close();
-            } catch (IOException e) {
+            } catch (Exception e) {
                 status = 0;
             } 
 

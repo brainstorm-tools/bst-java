@@ -36,20 +36,9 @@ public class BstDownload {
         // ===== COPY ARGUMENTS =====
         // Output filename
         outputFile = file;
-        // Old versions of Matlab default to a weird ICE library URL Handler
-        // that causes HTTPS issues. Force usage of proper Handler if possible.
-        URLStreamHandler handler = null;
-        if (strUrl.toLowerCase().startsWith("https"))
-        {
-            try {
-                handler = new sun.net.www.protocol.https.Handler();
-            } catch (Exception e) {
-                handler = null;
-            }
-        }
         // Input URL
         try{
-            url = new java.net.URL(null, strUrl, handler);
+            url = createUrl(strUrl);
         }
         catch (Exception e){
             jLabel.setText("Error: Invalid URL.");
@@ -222,6 +211,51 @@ public class BstDownload {
     private HttpURLConnection downloadAttempt(Proxy proxy) throws Exception {
         // Open connection to URL
         HttpURLConnection connection;
+        try {
+            connection = openHttpsConnection(url, proxy);
+        } catch (IllegalArgumentException e) {
+            message = "HTTPS connections to GitHub require Java 1.7. Please update Java.";
+            throw new Exception("ConnectionError");
+        }
+
+        // Specify what portion of file to download.
+        connection.setRequestProperty("Range", "bytes=0-");
+        // Connect to server.
+        try {
+            connection.connect();
+            Thread.sleep(200);
+        } catch (Exception ec) {
+            message = "Cannot open http connection.\nCheck the Matlab proxy configuration (Preferences > Web).";
+            throw new Exception("ConnectionError");
+        }
+        // Make sure response code is in the 200 range.
+        if (connection.getResponseCode() / 100 != 2) {
+            message = "Error: File to download does not exist.";
+            throw new Exception("FileNotFound");
+        }
+        
+        return connection;
+    }
+    
+    public static URL createUrl(String strUrl) throws MalformedURLException
+    {
+        // Old versions of Matlab default to a weird ICE library URL Handler
+        // that causes HTTPS issues. Force usage of proper Handler if possible.
+        URLStreamHandler handler = null;
+        if (strUrl.toLowerCase().startsWith("https"))
+        {
+            try {
+                handler = new sun.net.www.protocol.https.Handler();
+            } catch (Exception e) {
+                handler = null;
+            }
+        }
+        return new java.net.URL(null, strUrl, handler);
+    }
+    
+    public static HttpURLConnection openHttpsConnection(URL url, Proxy proxy) throws Exception
+    {
+        HttpURLConnection connection;
         if (url.getProtocol().equals("https")) {
             HttpsURLConnection tlsConnection;
 
@@ -243,8 +277,7 @@ public class BstDownload {
             } else {
                 // GitHub requires the latest TLS version.
                 if (url.getHost().equals("github.com")) {
-                    message = "HTTPS connections to GitHub require Java 1.7. Please update Java.";
-                    throw new Exception("ConnectionError");
+                    throw new IllegalArgumentException("GitHubError");
                 }
                 
                 // Create a trust all certificate checker because early Java 1.6
@@ -274,22 +307,6 @@ public class BstDownload {
             } else {
                 connection = (HttpURLConnection) url.openConnection();
             }
-        }
-
-        // Specify what portion of file to download.
-        connection.setRequestProperty("Range", "bytes=0-");
-        // Connect to server.
-        try {
-            connection.connect();
-            Thread.sleep(200);
-        } catch (Exception ec) {
-            message = "Cannot open http connection.\nCheck the Matlab proxy configuration (Preferences > Web).";
-            throw new Exception("ConnectionError");
-        }
-        // Make sure response code is in the 200 range.
-        if (connection.getResponseCode() / 100 != 2) {
-            message = "Error: File to download does not exist.";
-            throw new Exception("FileNotFound");
         }
         
         return connection;
