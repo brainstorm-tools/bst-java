@@ -14,9 +14,9 @@ public class CloneControl {
         int status = -1;
 
         // Check if there are any GIT files in the folder
-        if (!(new File(BrainstormHomeDir + File.separator + ".git").exists()) && 
-            !(new File(BrainstormHomeDir + File.separator + "LICENSE").exists()) && 
+        if (!(new File(BrainstormHomeDir + File.separator + "LICENSE").exists()) && 
             !(new File(BrainstormHomeDir + File.separator + "README.md").exists())){
+            // !(new File(BrainstormHomeDir + File.separator + ".git").exists()) && 
             status = 1;
             return status;
         }
