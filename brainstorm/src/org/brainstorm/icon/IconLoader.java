@@ -93,6 +93,7 @@ public class IconLoader {
     public static final ImageIcon ICON_COLORMAP_PAC        = createImageIcon("icon/iconColormapPac.gif");
     public static final ImageIcon ICON_COLORMAP_TPAC       = createImageIcon("icon/iconColormapTpac.gif");
     public static final ImageIcon ICON_COLORMAP_GIN       = createImageIcon("icon/iconColormapGin.gif");
+    public static final ImageIcon ICON_COLORMAP_OVUN       = createImageIcon("icon/iconColormapOvun.gif");
     
     // Good/Bad
     public static final ImageIcon ICON_CHANNEL_GOOD  = createImageIcon("icon/iconChannelGood.gif");
