@@ -5,13 +5,17 @@ import java.util.*;
 
 public class RunCompiled {
     public static void main(String[] args) {
-        // Input and output parameters: empty
-        List<Double> list1 = new ArrayList<Double>();
-        List<Double> list2 = new ArrayList<Double>();
+        // Input parameters: Copy the command line
+        List<String> listIn = new ArrayList<String>();
+        for (int i=0; i<args.length; i++){
+            listIn.add(args[i]);
+        }
+        // Output parameters: empty
+        List<Double> listOut = new ArrayList<Double>();
         // Execute code
         try{
             Run r = new bst_javabuilder_2017b.Run();
-            r.brainstorm(list1, list2);
+            r.brainstorm(listOut, listIn);
             System.out.println("BST> Compiled code returned without errors.");
         }catch (Exception e){
             e.printStackTrace();
