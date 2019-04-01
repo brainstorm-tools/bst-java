@@ -77,7 +77,7 @@ public class SelectMcr2017b {
             !(new File(mcrDir + "/bin/win64/mcr.dll")).isFile() &&   
             !(new File(mcrDir + "/bin/glnx86/libnativedl.so")).isFile() &&  
             !(new File(mcrDir + "/bin/glnxa64/libnativedl.so")).isFile()){
-            JOptionPane.showMessageDialog(null, "Not a valid Matlab Runtime 9.2 installation folder");
+            JOptionPane.showMessageDialog(null, "Not a valid Matlab Runtime 9.3 installation folder");
             System.exit(-1);
         }
         
