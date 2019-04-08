@@ -93,8 +93,14 @@ public class IconLoader {
     public static final ImageIcon ICON_COLORMAP_CONNECT    = createImageIcon("icon/iconColormapConnect.gif");
     public static final ImageIcon ICON_COLORMAP_PAC        = createImageIcon("icon/iconColormapPac.gif");
     public static final ImageIcon ICON_COLORMAP_TPAC       = createImageIcon("icon/iconColormapTpac.gif");
-    public static final ImageIcon ICON_COLORMAP_GIN       = createImageIcon("icon/iconColormapGin.gif");
+    public static final ImageIcon ICON_COLORMAP_GIN        = createImageIcon("icon/iconColormapGin.gif");
     public static final ImageIcon ICON_COLORMAP_OVUN       = createImageIcon("icon/iconColormapOvun.gif");
+    public static final ImageIcon ICON_COLORMAP_DIV_LIN    = createImageIcon("icon/iconColormapDivLin.gif");
+    public static final ImageIcon ICON_COLORMAP_HOT_LIN    = createImageIcon("icon/iconColormapHotLin.gif");
+    public static final ImageIcon ICON_COLORMAP_MAGMA      = createImageIcon("icon/iconColormapMagma.gif");
+    public static final ImageIcon ICON_COLORMAP_SEMI_ISO   = createImageIcon("icon/iconColormapSemiIso.gif");
+    public static final ImageIcon ICON_COLORMAP_VIRIDIS    = createImageIcon("icon/iconColormapViridis.gif");
+    public static final ImageIcon ICON_COLORMAP_VIRIDIS2   = createImageIcon("icon/iconColormapViridis2.gif");
     
     // Good/Bad
     public static final ImageIcon ICON_CHANNEL_GOOD  = createImageIcon("icon/iconChannelGood.gif");
