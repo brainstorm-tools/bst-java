@@ -6,9 +6,9 @@ import java.io.*;
 /**
  * @author Francois Tadel
  */
-public class SelectMcr2018b {
+public class SelectMcr2019a {
     // ===== CONSTRUCTOR =====
-    public SelectMcr2018b(){     
+    public SelectMcr2019a(){     
     }
     
     // ===== MAIN =====
@@ -16,7 +16,7 @@ public class SelectMcr2018b {
         // ===== READ $HOME/MATLABROOT.txt =====
         // Build filename
         String userDir = System.getProperty("user.home");
-        File confFile = new File(userDir + "/.brainstorm/MATLABROOT95.txt");
+        File confFile = new File(userDir + "/.brainstorm/MATLABROOT96.txt");
         String mcrDir = "";
         // Read file
         if (confFile.isFile()){
@@ -42,18 +42,18 @@ public class SelectMcr2018b {
         // Message box
         JOptionPane.showMessageDialog(null, 
                 "To execute the Brainstorm binaries, you need to install the\n" +
-                "Matlab Runtime 9.5 on your computer (MCR Matlab R2018b).\n\n" +
+                "Matlab Runtime 9.6 on your computer (MCR Matlab R2019a).\n\n" +
                 "The MCR is available from the Mathworks website:\n" + 
                 "> google \"download matlab mcr\".\n\n" + 
-                "Now, select the installation folder of the MCR 9.5. Examples:\n" +
-                "    - Linux:  /usr/local/Matlab_Runtime/v95\n" +
-                "    - Linux:  $HOME/MCR_R2018b\n" + 
-                "    - MacOSX: /Applications/MATLAB/MATLAB_Runtime/v95\n" +
-                "    - Windows: C:\\Program Files\\MATLAB\\MATLAB Runtime\\v95\n");
+                "Now, select the installation folder of the MCR 9.6. Examples:\n" +
+                "    - Linux:  /usr/local/Matlab_Runtime/v96\n" +
+                "    - Linux:  $HOME/MCR_R2019a\n" + 
+                "    - MacOSX: /Applications/MATLAB/MATLAB_Runtime/v96\n" +
+                "    - Windows: C:\\Program Files\\MATLAB\\MATLAB Runtime\\v96\n");
 
         // Show dialog box
         JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setDialogTitle("Select Matlab Runtime folder (9.5)");
+        fileChooser.setDialogTitle("Select Matlab Runtime folder (9.6)");
         fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         fileChooser.setMultiSelectionEnabled(false);
         if (mcrDir.length() > 1){
@@ -77,7 +77,7 @@ public class SelectMcr2018b {
             !(new File(mcrDir + "/bin/win64/mcr.dll")).isFile() &&   
             !(new File(mcrDir + "/bin/glnx86/libnativedl.so")).isFile() &&  
             !(new File(mcrDir + "/bin/glnxa64/libnativedl.so")).isFile()){
-            JOptionPane.showMessageDialog(null, "Not a valid Matlab Runtime 9.5 installation folder");
+            JOptionPane.showMessageDialog(null, "Not a valid Matlab Runtime 9.6 installation folder");
             System.exit(-1);
         }
         

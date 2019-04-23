@@ -88,6 +88,8 @@ public class BstCellRenderer extends JLabel implements TreeCellRenderer, TableCe
                 nodeIcon = IconLoader.ICON_SURFACE_OUTERSKULL;
             }else if(bstNode.getType().equalsIgnoreCase("innerskull")){
                 nodeIcon = IconLoader.ICON_SURFACE_INNERSKULL;
+            }else if(bstNode.getType().equalsIgnoreCase("fibers")){
+                nodeIcon = IconLoader.ICON_FIBERS;
             }else if(bstNode.getType().equalsIgnoreCase("other")){
                 nodeIcon = IconLoader.ICON_SURFACE;
             // LINK

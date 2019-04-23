@@ -60,6 +60,7 @@ public class IconLoader {
     public static final ImageIcon ICON_PCONNECTN     = createImageIcon("icon/iconPConnectN.gif");
     public static final ImageIcon ICON_PPAC          = createImageIcon("icon/iconPPac.gif");
     public static final ImageIcon ICON_PMATRIX       = createImageIcon("icon/iconPMatrix.gif");
+    public static final ImageIcon ICON_FIBERS        = createImageIcon("icon/iconFibers.gif");
     
     // Colormaps
     public static final ImageIcon ICON_COLORMAP_GREY   = createImageIcon("icon/iconColormapGrey.gif");
@@ -94,6 +95,7 @@ public class IconLoader {
     public static final ImageIcon ICON_COLORMAP_TPAC       = createImageIcon("icon/iconColormapTpac.gif");
     public static final ImageIcon ICON_COLORMAP_GIN        = createImageIcon("icon/iconColormapGin.gif");
     public static final ImageIcon ICON_COLORMAP_OVUN       = createImageIcon("icon/iconColormapOvun.gif");
+
     public static final ImageIcon ICON_COLORMAP_MANDRILL   = createImageIcon("icon/iconColormapMandrill.gif");
     public static final ImageIcon ICON_COLORMAP_MAGMA      = createImageIcon("icon/iconColormapMagma.gif");
     public static final ImageIcon ICON_COLORMAP_ROYAL_GRAMMA   = createImageIcon("icon/iconColormapRoyalGramma.gif");
