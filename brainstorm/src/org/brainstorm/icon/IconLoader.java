@@ -216,6 +216,8 @@ public class IconLoader {
     public static final ImageIcon ICON_ZOOM_XY       = createImageIcon("icon/iconZoomXY.gif");
     public static final ImageIcon ICON_SCROLL_UP     = createImageIcon("icon/iconScrollUp.gif");
     public static final ImageIcon ICON_SCROLL_DOWN   = createImageIcon("icon/iconScrollDown.gif");
+    public static final ImageIcon ICON_SCROLL_LEFT   = createImageIcon("icon/iconScrollLeft.gif");
+    public static final ImageIcon ICON_SCROLL_RIGHT  = createImageIcon("icon/iconScrollRight.gif");
     public static final ImageIcon ICON_TS_SELECTION  = createImageIcon("icon/iconTSSelection.gif");
     public static final ImageIcon ICON_TS_SYNCRO     = createImageIcon("icon/iconTSSynchro.gif");
     public static final ImageIcon ICON_FLIPY         = createImageIcon("icon/iconFlipY.gif");
@@ -255,6 +257,8 @@ public class IconLoader {
     public static final ImageIcon ICON_RESIZE_X      = createImageIcon("icon/iconResizeX.gif");
     public static final ImageIcon ICON_RESIZE_Y      = createImageIcon("icon/iconResizeY.gif");
     public static final ImageIcon ICON_RESIZE_Z      = createImageIcon("icon/iconResizeZ.gif");
+    public static final ImageIcon ICON_X             = createImageIcon("icon/iconX.gif");
+    public static final ImageIcon ICON_Y             = createImageIcon("icon/iconY.gif");
     public static final ImageIcon ICON_PROJECT_ELECTRODES = createImageIcon("icon/iconProjectElectrodes.gif");
     public static final ImageIcon ICON_PAN           = createImageIcon("icon/iconPan.gif");
     public static final ImageIcon ICON_BRIGHTNESS_PLUS  = createImageIcon("icon/iconBrightnessPlus.gif");
@@ -270,6 +274,7 @@ public class IconLoader {
     public static final ImageIcon ICON_MENU              = createImageIcon("icon/iconMenu.gif");
     public static final ImageIcon ICON_MENU_LEFT         = createImageIcon("icon/iconMenuLeft.gif");
     public static final ImageIcon ICON_MENU_RIGHT        = createImageIcon("icon/iconMenuRight.gif");
+    public static final ImageIcon ICON_DROP_MENU_LEFT    = createImageIcon("icon/iconDropMenuLeft.gif");
     public static final ImageIcon ICON_MENU_UP           = createImageIcon("icon/iconMenuUp.gif");
     public static final ImageIcon ICON_FIND_MAX          = createImageIcon("icon/iconFindMax.gif");
     public static final ImageIcon ICON_COLOR_SELECTION   = createImageIcon("icon/iconColorSelection.gif");
