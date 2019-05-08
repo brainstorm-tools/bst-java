@@ -34,10 +34,16 @@ public class BstColorListRenderer implements ListCellRenderer {
             renderer.add(labelColor, BorderLayout.WEST);
         }
         // Item label
-        JLabel labelText = new JLabel(" " + label.getText());
-        if (list.isEnabled()){
+        String strText = label.getText();
+        JLabel labelText;
+        if ((strText.length() > 1) && (strText.startsWith("("))){
+            labelText = new JLabel(" " + strText.substring(1));
+            labelText.setForeground(new Color(178, 178, 178));
+        }else if (list.isEnabled()){
+            labelText = new JLabel(" " + strText);
             labelText.setForeground(label.getForeground());
         }else{
+            labelText = new JLabel(" " + strText);
             labelText.setForeground(new Color(150, 150, 150));
         }
         labelText.setFont(jFont);

@@ -64,6 +64,9 @@ public class BstListItem {
     public void setUserData(Object o){
         this.userData = o;
     }
+    public void setName(String name_){
+        this.name = name_;
+    }
 
     public String toString(){
         return this.name;
