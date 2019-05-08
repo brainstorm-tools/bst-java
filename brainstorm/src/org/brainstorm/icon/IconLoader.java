@@ -19,7 +19,6 @@ public class IconLoader {
     public static final ImageIcon ICON_SUBJECTDB    = createImageIcon("icon/iconSubjectDB.gif");
     public static final ImageIcon ICON_SUBJECT      = createImageIcon("icon/iconSubject.gif");
     public static final ImageIcon ICON_ANATOMY      = createImageIcon("icon/iconMri.gif");
-    public static final ImageIcon ICON_MRI_AXIAL    = createImageIcon("icon/iconMriAxial.gif");
     public static final ImageIcon ICON_SURFACE      = createImageIcon("icon/iconSurface.gif");
     public static final ImageIcon ICON_SURFACE_CORTEX     = createImageIcon("icon/iconCortexCut.gif");
     public static final ImageIcon ICON_SURFACE_SCALP      = createImageIcon("icon/iconScalp.gif");
@@ -44,7 +43,6 @@ public class IconLoader {
     public static final ImageIcon ICON_TIMEFREQ      = createImageIcon("icon/iconTimefreq.gif");
     public static final ImageIcon ICON_TIMEFREQ_LIST = createImageIcon("icon/iconTimefreqList.gif");
     public static final ImageIcon ICON_HILBERT       = createImageIcon("icon/iconHilbert.gif");
-    public static final ImageIcon ICON_FFT           = createImageIcon("icon/iconFft.gif");
     public static final ImageIcon ICON_MATRIX        = createImageIcon("icon/iconMatrix.gif");
     public static final ImageIcon ICON_MATRIX_LIST   = createImageIcon("icon/iconMatrixList.gif");
     public static final ImageIcon ICON_EMPTY         = createImageIcon("icon/iconEmpty.gif");
@@ -114,16 +112,13 @@ public class IconLoader {
     public static final ImageIcon ICON_NEXT_SUBJECT   = createImageIcon("icon/iconNextSubject.gif");
     public static final ImageIcon ICON_NEXT_CONDITION = createImageIcon("icon/iconNextCondition.gif");
     public static final ImageIcon ICON_NEXT_DATA      = createImageIcon("icon/iconNextData.gif");
-    public static final ImageIcon ICON_NEXT_RESULT    = createImageIcon("icon/iconNextResult.gif");
     public static final ImageIcon ICON_PREVIOUS_SUBJECT   = createImageIcon("icon/iconPreviousSubject.gif");
     public static final ImageIcon ICON_PREVIOUS_CONDITION = createImageIcon("icon/iconPreviousCondition.gif");
     public static final ImageIcon ICON_PREVIOUS_DATA      = createImageIcon("icon/iconPreviousData.gif");
-    public static final ImageIcon ICON_PREVIOUS_RESULT    = createImageIcon("icon/iconPreviousResult.gif");
     
     // Various
     public static final ImageIcon ICON_ALIGN_CHANNELS= createImageIcon("icon/iconAlignChannels.gif");
     public static final ImageIcon ICON_ALIGN_SURFACES= createImageIcon("icon/iconAlignSurface.gif");
-    public static final ImageIcon ICON_ARROW         = createImageIcon("icon/iconArrow.gif");
     public static final ImageIcon ICON_ATLAS         = createImageIcon("icon/iconAtlas.gif");
     public static final ImageIcon ICON_AXES          = createImageIcon("icon/iconAxes.gif");
     public static final ImageIcon ICON_CHANNEL_LABEL = createImageIcon("icon/iconChannelLabel.gif");
@@ -144,7 +139,6 @@ public class IconLoader {
     public static final ImageIcon ICON_EDIT          = createImageIcon("icon/iconEdit.gif");
     public static final ImageIcon ICON_EXPLORER      = createImageIcon("icon/iconExplorer.gif");
     public static final ImageIcon ICON_TERMINAL      = createImageIcon("icon/iconTerminal.gif");
-    public static final ImageIcon ICON_FILTER        = createImageIcon("icon/iconFilter.gif");
     public static final ImageIcon ICON_FLIP          = createImageIcon("icon/iconFlip.gif");
     public static final ImageIcon ICON_FUSION        = createImageIcon("icon/iconFusion.gif");
     public static final ImageIcon ICON_GRID_X        = createImageIcon("icon/iconGridX.gif");
@@ -156,17 +150,14 @@ public class IconLoader {
     public static final ImageIcon ICON_LAYOUT_SELECT = createImageIcon("icon/iconLayoutSelect.gif");
     public static final ImageIcon ICON_LAYOUT_WEIGHT = createImageIcon("icon/iconLayoutWeight.gif");
     public static final ImageIcon ICON_LAYOUT_FULLAREA   = createImageIcon("icon/iconLayoutFullarea.gif");
-    public static final ImageIcon ICON_LAYOUT_FULLSCREEN = createImageIcon("icon/iconLayoutFullscreen.gif");
     public static final ImageIcon ICON_LAYOUT_CASCADE    = createImageIcon("icon/iconLayoutCascade.gif");
     public static final ImageIcon ICON_LAYOUT_NONE   = createImageIcon("icon/iconLayoutNone.gif");
     public static final ImageIcon ICON_SCREEN1       = createImageIcon("icon/iconScreen1.gif");
     public static final ImageIcon ICON_SCREEN2       = createImageIcon("icon/iconScreen2.gif");
-    public static final ImageIcon ICON_LEGEND        = createImageIcon("icon/iconLegend.gif");
     public static final ImageIcon ICON_MATLAB        = createImageIcon("icon/iconMatlab.gif");
     public static final ImageIcon ICON_MATLAB_IMPORT = createImageIcon("icon/iconMatlabImport.gif");
     public static final ImageIcon ICON_MATLAB_EXPORT = createImageIcon("icon/iconMatlabExport.gif");
     public static final ImageIcon ICON_MATLAB_CONTROLS= createImageIcon("icon/iconMatlabControls.gif");
-    public static final ImageIcon ICON_MOVE          = createImageIcon("icon/iconMove.gif");
     public static final ImageIcon ICON_MOVE_CHANNEL  = createImageIcon("icon/iconMoveChannel.gif");
     public static final ImageIcon ICON_MOVIE         = createImageIcon("icon/iconMovie.gif");
     public static final ImageIcon ICON_PLOTEDIT      = createImageIcon("icon/iconPlotEdit.gif");
@@ -177,9 +168,6 @@ public class IconLoader {
     public static final ImageIcon ICON_ROTATE        = createImageIcon("icon/iconRotate.gif");
     public static final ImageIcon ICON_RUN           = createImageIcon("icon/iconRun.gif");
     public static final ImageIcon ICON_SAVE          = createImageIcon("icon/iconSave.gif");
-    public static final ImageIcon ICON_NEW           = createImageIcon("icon/iconFile.gif");
-    public static final ImageIcon ICON_SCALE         = createImageIcon("icon/iconScale.gif");
-    public static final ImageIcon ICON_SCOUT_FORWARDMODEL = createImageIcon("icon/iconScoutForwardModel.gif");
     public static final ImageIcon ICON_SCOUT_NEW     = createImageIcon("icon/iconScoutNew.gif");
     public static final ImageIcon ICON_SCOUT_SEL     = createImageIcon("icon/iconScoutSel.gif");
     public static final ImageIcon ICON_SCOUT_ALL     = createImageIcon("icon/iconScoutAll.gif");
@@ -191,11 +179,8 @@ public class IconLoader {
     public static final ImageIcon ICON_SLICES        = createImageIcon("icon/iconSlices.gif");
     public static final ImageIcon ICON_SNAPSHOT      = createImageIcon("icon/iconSnapshot.gif");
     public static final ImageIcon ICON_SPECTRUM      = createImageIcon("icon/iconSpectrum.gif");
-    public static final ImageIcon ICON_STAT_AA       = createImageIcon("icon/iconStatAA.gif");
-    public static final ImageIcon ICON_STAT_AB       = createImageIcon("icon/iconStatAB.gif"); 
     public static final ImageIcon ICON_SURFACE_ADD   = createImageIcon("icon/iconSurfaceAdd.gif");
     public static final ImageIcon ICON_SURFACE_REMOVE= createImageIcon("icon/iconSurfaceRemove.gif");
-    public static final ImageIcon ICON_THRESHOLD     = createImageIcon("icon/iconThreshold.gif");
     public static final ImageIcon ICON_TOPOGRAPHY    = createImageIcon("icon/iconTopography.gif");
     public static final ImageIcon ICON_TOPO_NOINTERP = createImageIcon("icon/iconTopoNoInterp.gif");
     public static final ImageIcon ICON_2DLAYOUT      = createImageIcon("icon/icon2DLayout.gif");
@@ -205,15 +190,8 @@ public class IconLoader {
     public static final ImageIcon ICON_TS_DISPLAY_MODE = createImageIcon("icon/iconTSDisplayMode.gif");
     public static final ImageIcon ICON_MONTAGE_MENU   = createImageIcon("icon/iconMontageMenu.gif");
     public static final ImageIcon ICON_WARNING       = createImageIcon("icon/iconWarning.gif");
-    public static final ImageIcon ICON_WRAP_SURFACE  = createImageIcon("icon/iconWarpSurface.gif");
-    public static final ImageIcon ICON_ZOOM          = createImageIcon("icon/iconZoom.gif");
     public static final ImageIcon ICON_ZOOM_PLUS     = createImageIcon("icon/iconZoomPlus.gif");
     public static final ImageIcon ICON_ZOOM_MINUS    = createImageIcon("icon/iconZoomMinus.gif");
-    public static final ImageIcon ICON_ZOOM_UP       = createImageIcon("icon/iconZoomUp.gif");
-    public static final ImageIcon ICON_ZOOM_DOWN     = createImageIcon("icon/iconZoomDown.gif");
-    public static final ImageIcon ICON_ZOOM_X        = createImageIcon("icon/iconZoomX.gif");
-    public static final ImageIcon ICON_ZOOM_Y        = createImageIcon("icon/iconZoomY.gif");
-    public static final ImageIcon ICON_ZOOM_XY       = createImageIcon("icon/iconZoomXY.gif");
     public static final ImageIcon ICON_SCROLL_UP     = createImageIcon("icon/iconScrollUp.gif");
     public static final ImageIcon ICON_SCROLL_DOWN   = createImageIcon("icon/iconScrollDown.gif");
     public static final ImageIcon ICON_SCROLL_LEFT   = createImageIcon("icon/iconScrollLeft.gif");
@@ -226,7 +204,6 @@ public class IconLoader {
     
     // New
     public static final ImageIcon ICON_EEG_NEW     = createImageIcon("icon/iconEegNew.gif");
-    public static final ImageIcon ICON_EEG_NEW_MENU= createImageIcon("icon/iconEegNewMenu.gif");
     public static final ImageIcon ICON_FOLDER_NEW  = createImageIcon("icon/iconFolderNew.gif");
     public static final ImageIcon ICON_SUBJECT_NEW = createImageIcon("icon/iconSubjectNew.gif");
     // Modifiers
@@ -237,7 +214,6 @@ public class IconLoader {
     public static final ImageIcon ICON_PASTE       = createImageIcon("icon/iconPaste.gif");
 
     // MATLAB BUTTON BITMAPS
-    public static final ImageIcon ICON_CROSS       = createImageIcon("icon/iconCross.gif");
     public static final ImageIcon ICON_MRI_FLIP    = createImageIcon("icon/iconMriFlip.gif");
     public static final ImageIcon ICON_MRI_PERMUTE = createImageIcon("icon/iconMriPermute.gif");
     public static final ImageIcon ICON_MRI_ROTATE  = createImageIcon("icon/iconMriRotate.gif");
@@ -260,22 +236,18 @@ public class IconLoader {
     public static final ImageIcon ICON_X             = createImageIcon("icon/iconX.gif");
     public static final ImageIcon ICON_Y             = createImageIcon("icon/iconY.gif");
     public static final ImageIcon ICON_PROJECT_ELECTRODES = createImageIcon("icon/iconProjectElectrodes.gif");
-    public static final ImageIcon ICON_PAN           = createImageIcon("icon/iconPan.gif");
     public static final ImageIcon ICON_BRIGHTNESS_PLUS  = createImageIcon("icon/iconBrightnessPlus.gif");
     public static final ImageIcon ICON_BRIGHTNESS_MINUS = createImageIcon("icon/iconBrightnessMinus.gif");  
     public static final ImageIcon ICON_LASSO            = createImageIcon("icon/iconLasso.gif");
     public static final ImageIcon ICON_LASSO_MINUS      = createImageIcon("icon/iconLassoMinus.gif");
     public static final ImageIcon ICON_LASSO_PLUS       = createImageIcon("icon/iconLassoPlus.gif");
-    public static final ImageIcon ICON_CURVE            = createImageIcon("icon/iconCurve.gif");
     public static final ImageIcon ICON_CURVE_MINUS      = createImageIcon("icon/iconCurveMinus.gif");
     public static final ImageIcon ICON_CURVE_PLUS       = createImageIcon("icon/iconCurvePlus.gif");
     public static final ImageIcon ICON_VIEW_SCOUT_IN_MRI = createImageIcon("icon/iconViewScoutInMri.gif");
     public static final ImageIcon ICON_EDIT_SCOUT_IN_MRI = createImageIcon("icon/iconEditScoutInMri.gif");
     public static final ImageIcon ICON_MENU              = createImageIcon("icon/iconMenu.gif");
     public static final ImageIcon ICON_MENU_LEFT         = createImageIcon("icon/iconMenuLeft.gif");
-    public static final ImageIcon ICON_MENU_RIGHT        = createImageIcon("icon/iconMenuRight.gif");
-    public static final ImageIcon ICON_DROP_MENU_LEFT    = createImageIcon("icon/iconDropMenuLeft.gif");
-    public static final ImageIcon ICON_MENU_UP           = createImageIcon("icon/iconMenuUp.gif");
+    public static final ImageIcon ICON_MENU_LEFT_TS      = createImageIcon("icon/iconMenuLeftTs.gif");
     public static final ImageIcon ICON_FIND_MAX          = createImageIcon("icon/iconFindMax.gif");
     public static final ImageIcon ICON_COLOR_SELECTION   = createImageIcon("icon/iconColorSelection.gif");
     public static final ImageIcon ICON_PROPERTIES        = createImageIcon("icon/iconProperties.gif");
@@ -304,14 +276,10 @@ public class IconLoader {
     // PROCESSES
     public static final ImageIcon ICON_PROCESS          = createImageIcon("icon/iconProcess.gif");
     public static final ImageIcon ICON_PROCESS_SELECT   = createImageIcon("icon/iconProcessSelect.gif");
-    public static final ImageIcon ICON_PROCESS_ADD      = createImageIcon("icon/iconProcessAdd.gif");
     public static final ImageIcon ICON_ARROW_UP         = createImageIcon("icon/iconArrowUp.gif");
     public static final ImageIcon ICON_ARROW_DOWN       = createImageIcon("icon/iconArrowDown.gif");
     public static final ImageIcon ICON_ARROW_LEFT       = createImageIcon("icon/iconArrowLeft.gif");
     public static final ImageIcon ICON_ARROW_RIGHT      = createImageIcon("icon/iconArrowRight.gif");
-    public static final ImageIcon ICON_OPEN_LIST        = createImageIcon("icon/iconOpenList.gif");
-    public static final ImageIcon ICON_SAVE_LIST        = createImageIcon("icon/iconSaveList.gif");
-    public static final ImageIcon ICON_DELETE_LIST      = createImageIcon("icon/iconDeleteList.gif");
     public static final ImageIcon ICON_PIPELINE_LIST    = createImageIcon("icon/iconPipelineList.gif");
 
     // ===== CONSTRUCTOR =====
