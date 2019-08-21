@@ -93,13 +93,13 @@ public class IconLoader {
     public static final ImageIcon ICON_COLORMAP_TPAC       = createImageIcon("icon/iconColormapTpac.gif");
     public static final ImageIcon ICON_COLORMAP_GIN        = createImageIcon("icon/iconColormapGin.gif");
     public static final ImageIcon ICON_COLORMAP_OVUN       = createImageIcon("icon/iconColormapOvun.gif");
-
     public static final ImageIcon ICON_COLORMAP_MANDRILL   = createImageIcon("icon/iconColormapMandrill.gif");
     public static final ImageIcon ICON_COLORMAP_MAGMA      = createImageIcon("icon/iconColormapMagma.gif");
-    public static final ImageIcon ICON_COLORMAP_ROYAL_GRAMMA   = createImageIcon("icon/iconColormapRoyalGramma.gif");
-    public static final ImageIcon ICON_COLORMAP_VIRIDIS        = createImageIcon("icon/iconColormapViridis.gif");
-    public static final ImageIcon ICON_COLORMAP_VIRIDIS2       = createImageIcon("icon/iconColormapViridis2.gif");
-    public static final ImageIcon ICON_COLORMAP_DORY           = createImageIcon("icon/iconColormapDory.gif");
+    public static final ImageIcon ICON_COLORMAP_ROYAL_GRAMMA = createImageIcon("icon/iconColormapRoyalGramma.gif");
+    public static final ImageIcon ICON_COLORMAP_VIRIDIS      = createImageIcon("icon/iconColormapViridis.gif");
+    public static final ImageIcon ICON_COLORMAP_VIRIDIS2     = createImageIcon("icon/iconColormapViridis2.gif");
+    public static final ImageIcon ICON_COLORMAP_DORY         = createImageIcon("icon/iconColormapDory.gif");
+    public static final ImageIcon ICON_COLORMAP_TURBO        = createImageIcon("icon/iconColormapTurbo.gif");
 
     // Good/Bad
     public static final ImageIcon ICON_CHANNEL_GOOD  = createImageIcon("icon/iconChannelGood.gif");
