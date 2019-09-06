@@ -59,6 +59,7 @@ public class IconLoader {
     public static final ImageIcon ICON_PPAC          = createImageIcon("icon/iconPPac.gif");
     public static final ImageIcon ICON_PMATRIX       = createImageIcon("icon/iconPMatrix.gif");
     public static final ImageIcon ICON_FIBERS        = createImageIcon("icon/iconFibers.gif");
+    public static final ImageIcon ICON_FEM           = createImageIcon("icon/iconFem.gif");
     
     // Colormaps
     public static final ImageIcon ICON_COLORMAP_GREY   = createImageIcon("icon/iconColormapGrey.gif");
