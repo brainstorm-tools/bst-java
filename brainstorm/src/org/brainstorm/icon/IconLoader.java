@@ -193,6 +193,7 @@ public class IconLoader {
     public static final ImageIcon ICON_WARNING       = createImageIcon("icon/iconWarning.gif");
     public static final ImageIcon ICON_ZOOM_PLUS     = createImageIcon("icon/iconZoomPlus.gif");
     public static final ImageIcon ICON_ZOOM_MINUS    = createImageIcon("icon/iconZoomMinus.gif");
+    public static final ImageIcon ICON_ZOOM          = createImageIcon("icon/iconZoom.gif");
     public static final ImageIcon ICON_SCROLL_UP     = createImageIcon("icon/iconScrollUp.gif");
     public static final ImageIcon ICON_SCROLL_DOWN   = createImageIcon("icon/iconScrollDown.gif");
     public static final ImageIcon ICON_SCROLL_LEFT   = createImageIcon("icon/iconScrollLeft.gif");
