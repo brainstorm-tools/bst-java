@@ -189,7 +189,8 @@ public class BstNode extends DefaultMutableTreeNode {
                                       "<TR><TD align=right><B>File</B>: </TD><TD>" + this.m_fileName + "</TD></TR></TABLE></HTML>";
         // SURFACES
         }else if(this.getType().equalsIgnoreCase("surface") || this.getType().equalsIgnoreCase("scalp") || this.getType().equalsIgnoreCase("cortex") ||
-                 this.getType().equalsIgnoreCase("outerskull") || this.getType().equalsIgnoreCase("innerskull") || this.getType().equalsIgnoreCase("fibers") || this.getType().equalsIgnoreCase("other")){
+                 this.getType().equalsIgnoreCase("outerskull") || this.getType().equalsIgnoreCase("innerskull") || this.getType().equalsIgnoreCase("other") ||
+                 this.getType().equalsIgnoreCase("fibers") || this.getType().equalsIgnoreCase("fem")){
             strIndices = "<HTML><TABLE><TR><TD align=right><B>Surface</B>: </TD><TD>" + formatSubjectName(this.m_studyIndex) + String.format(" - Surface #%1$d", this.m_itemIndex, this.m_itemIndex) + "</TD></TR>" + 
                                       "<TR><TD align=right><B>File</B>: </TD><TD>" + this.m_fileName + "</TD></TR></TABLE></HTML>";
         // STUDYDBSUBJ
