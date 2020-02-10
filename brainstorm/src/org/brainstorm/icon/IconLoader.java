@@ -337,11 +337,9 @@ public class IconLoader {
     
     // ===== SET SCALING FACTOR =====
     public static ImageIcon scaleIcon(ImageIcon imgIcon, float scaling){
-        if (scaling != 1){
-            java.awt.Image img = imgIcon.getImage();
-            img = img.getScaledInstance(Math.round(imgIcon.getIconWidth() * scaling), Math.round(imgIcon.getIconHeight() * scaling),  java.awt.Image.SCALE_SMOOTH);
-            imgIcon = new ImageIcon(img);
-        }
+        java.awt.Image img = imgIcon.getImage();
+        img = img.getScaledInstance(Math.round(imgIcon.getIconWidth() * scaling), Math.round(imgIcon.getIconHeight() * scaling),  java.awt.Image.SCALE_SMOOTH);
+        imgIcon = new ImageIcon(img);
         return imgIcon;
     }
 }
