@@ -214,7 +214,7 @@ public class BstDownload {
         try {
             connection = openHttpsConnection(url, proxy);
         } catch (IllegalArgumentException e) {
-            message = "HTTPS connections to GitHub require Java 1.7. Please update Java.";
+            message = "HTTPS connections to GitHub require Java 1.7 (Matlab >= 2013b).\nPlease update Java or Matlab.";
             throw new Exception("ConnectionError");
         }
 
@@ -225,7 +225,7 @@ public class BstDownload {
             connection.connect();
             Thread.sleep(200);
         } catch (Exception ec) {
-            message = "Cannot open http connection.\nCheck the Matlab proxy configuration (Preferences > Web).";
+            message = "Cannot open http connection.\nCheck the Matlab proxy configuration (Preferences > Web).\nHTTPS connections might require Java 1.7 (Matlab >= 2013b).";
             throw new Exception("ConnectionError");
         }
         // Make sure response code is in the 200 range.
