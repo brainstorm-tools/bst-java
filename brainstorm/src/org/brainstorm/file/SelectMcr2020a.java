@@ -42,12 +42,11 @@ public class SelectMcr2020a {
         // Message box
         JOptionPane.showMessageDialog(null, 
                 "To execute the Brainstorm binaries, you need to install the\n" +
-                "Matlab Runtime 9.8 on your computer (MCR Matlab R2020a).\n\n" +
-                "The MCR is available from the Mathworks website:\n" + 
-                "> google \"download matlab mcr\".\n\n" + 
-                "Now, select the installation folder of the MCR 9.8. Examples:\n" +
-                "    - Linux:  /usr/local/Matlab_Runtime/v98\n" +
-                "    - Linux:  $HOME/MCR_R2020a\n" + 
+                "Matlab Runtime 9.8 on your computer (R2020a).\n\n" +
+                "The Runtime is available from the Mathworks website:\n" + 
+                "> google \"download matlab runtime\".\n\n" + 
+                "Now, select the installation folder of the Runtime 9.8. Examples:\n" +
+                "    - Linux:  /usr/local/MATLAB_Runtime/v98\n" +
                 "    - MacOSX: /Applications/MATLAB/MATLAB_Runtime/v98\n" +
                 "    - Windows: C:\\Program Files\\MATLAB\\MATLAB Runtime\\v98\n");
 
