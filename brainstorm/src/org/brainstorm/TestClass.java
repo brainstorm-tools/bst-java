@@ -294,8 +294,15 @@ public class TestClass {
         //MsgServer.dlgQuest(null, "Message", "Title", list, "BBB");
         //MsgServer.dlgInput(null, "Message", "Title", "AAA");
         
-        String []res = MsgServer.dlgInput(null, list, "Title", list);
-        MsgServer.dlgInfo(null, res[0], "Title");
+        //String []res = MsgServer.dlgInput(null, list, "Title", list);
+        //MsgServer.dlgInfo(null, res[0], "Title");
+        
+        boolean res = MsgServer.dlgErrorHelp(null, "test", "title");
+        if (res){
+            MsgServer.dlgInfo(null, "OK", "Title");
+        } else {
+            MsgServer.dlgInfo(null, "HELP", "Title");
+        }
         
         // MsgServer.dlgConfirm(null, "Message", "Title");
         //MsgServer.dlgInfo(null, "Message", "Title");
@@ -349,14 +356,14 @@ public class TestClass {
                 }
                 //TestTableWindow();
                 // TestFileSelector();
-                // TestDialog();
-                TestDownload();
+                TestDialog();
+                //TestDownload();
                 //TestListWindow();
                 // TestCheckListWindow();
                 //TestTreeWindow();
                 //TestHotkeyDialog();
                 // TestTreeTableWindow();
-                //CloneControl.probe("C:\\Work\\Dev\\brainstorm_git\\brainstorm3");
+                // CloneControl.probe("C:\\Work\\Dev\\brainstorm_git\\brainstorm3");
                 
                 // Unpack.gunzip("C:\\Users\\franc\\Downloads\\T1.mgz", "C:\\Users\\franc\\Downloads\\T1.mgh");
                 // Unpack.unzip("C:\\TutorialCTF.zip", "C:\\");

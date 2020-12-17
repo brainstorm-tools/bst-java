@@ -17,6 +17,18 @@ public class MsgServer {
         return true;
     }
     
+    // ===== ERROR DIALOG + HELP BUTTON =====
+    public static boolean dlgErrorHelp(Component comp, String msg, String title){
+        String [] buttonList = {"Help", "OK"};
+        int res = JOptionPane.showOptionDialog(comp, msg, title, 0, JOptionPane.ERROR_MESSAGE, null, buttonList, "OK");
+        
+        if ((res == JOptionPane.CLOSED_OPTION) || (res == 1)) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
     // ===== WARNING DIALOGS =====
     public static boolean dlgWarning(Component comp, String msg, String title){
         javax.swing.JOptionPane d = new javax.swing.JOptionPane();
