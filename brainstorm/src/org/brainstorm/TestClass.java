@@ -312,9 +312,10 @@ public class TestClass {
     // ===== TEST DOWNLOAD =====
     public static void TestDownload(){
         // Download file
-        String srcUrl  = "https://neuroimage.usc.edu/bst/getupdate.php?c=UbsM09";
+        //String srcUrl  = "http://neuroimage.usc.edu/bst/getupdate.php?c=UbsM09&nobin=1";
         //String srcUrl  = "https://github.com/csn-le/wave_clus/archive/master.zip";
-        final BstDownload bstDownload = new BstDownload(srcUrl, "C:\\Users\\francois\\Downloads\\test.zip", "Download test");
+        String srcUrl  = "ftp://neuroimage.usc.edu/pub/templates/Kabdebon_7w.zip";
+        final BstDownload bstDownload = new BstDownload(srcUrl, "C:\\Users\\franc\\Downloads\\test.zip", "Download test");
         
         bstDownload.download();
         // Wait for the termination of the thread
@@ -356,8 +357,8 @@ public class TestClass {
                 }
                 //TestTableWindow();
                 // TestFileSelector();
-                TestDialog();
-                //TestDownload();
+                //TestDialog();
+                TestDownload();
                 //TestListWindow();
                 // TestCheckListWindow();
                 //TestTreeWindow();

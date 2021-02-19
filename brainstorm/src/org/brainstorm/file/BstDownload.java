@@ -11,6 +11,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 import se.datadosen.component.RiverLayout;
+import org.apache.commons.net.ftp.*;
 
 /**
  * @author Francois Tadel
@@ -27,6 +28,8 @@ public class BstDownload {
     private String message = "Error: Could not read distant file.";
     private Exception error = null;
     private Thread threadDownload = null;
+    private int contentLength = 0;
+    private InputStream contentStream = null;
 
     // Constructor
     public BstDownload(String strUrl, String file, String title){
@@ -127,39 +130,26 @@ public class BstDownload {
     // Download thread
     public void downloadThread(Proxy proxy){
         OutputStream file = null;
-        InputStream stream = null;
+        FTPClient ftp = null;
         int downloaded = 0;
-        
         try {
-            int attempts = 0;
-            int contentLength;
-            HttpURLConnection connection;
-            
-            // Sometimes it takes 2 tries to correctly start the connection.
-            while (true) {
-                connection = downloadAttempt(proxy);
-            
-                // Check for valid content length.
-                contentLength = connection.getContentLength();
-                attempts++;
-                
-                if (contentLength >= 1) {
-                    break;
-                } else if (attempts > 1) {
-                    message = "Error: File is empty.";
-                    throw new Exception("FileNotFound");
-                }                
+            // Open download stream
+            if (url.getProtocol().equalsIgnoreCase("http") || url.getProtocol().equalsIgnoreCase("https")){
+                openStreamHttp(proxy);
+            } else if (url.getProtocol().equalsIgnoreCase("ftp")) {
+                ftp = openStreamFtp();
+            } else {
+                throw new Exception("Unsupported protocol: " + url.getProtocol());
             }
-
+            
             // Set progress bar maximum
             jLabel.setText("Downloading...");
             jProgressBar.setMaximum(contentLength);
-
             // Open output file
             file = new FileOutputStream(outputFile);
-            stream = connection.getInputStream();
+            
+            // Loop to read file by blocks of MAX_BUFFER_SIZE
             isDownloading = true;
-
             while (isDownloading) {
                 // Size buffer according to how much of the file is left to download.
                 byte buffer[];
@@ -169,7 +159,7 @@ public class BstDownload {
                     buffer = new byte[contentLength - downloaded];
                 }
                 // Read from server into buffer.
-                int read = stream.read(buffer);
+                int read = contentStream.read(buffer);
                 if (read <= 0){
                     break;
                 }
@@ -198,17 +188,89 @@ public class BstDownload {
                 } catch (Exception e) {}
             }
             // Close connection to server.
-            if (stream != null) {
+            if (contentStream != null) {
                 try {
-                    stream.close();
-                } catch (Exception e) {}
+                    contentStream.close();
+                } catch (Exception e) {
+                    System.out.println("Cannot close stream: " + e.getMessage());
+                }
+            }
+            // Close FTP connection
+            if (ftp != null){
+                try {
+                    boolean success = ftp.completePendingCommand();
+                    if (!success){
+                        result = 0;
+                        error = new Exception("FTP download was interrupted.");
+                    }
+                    if (ftp.isConnected()) {
+                        ftp.disconnect();
+                    } 
+                } catch (Exception e) {
+                    result = 0;
+                    error = e;
+                }
             }
             // Close window
             jDialog.dispose();
         }
     }
     
-    private HttpURLConnection downloadAttempt(Proxy proxy) throws Exception {
+    
+    private FTPClient openStreamFtp() throws Exception{
+        // Connect to FTP server
+        FTPClient ftp = new FTPClient();
+        if (url.getPort() > 0){
+            ftp.connect(url.getHost(), url.getPort());
+        } else {
+            ftp.connect(url.getHost());
+        }
+        // Check connection
+        int reply = ftp.getReplyCode();
+        if(!FTPReply.isPositiveCompletion(reply)) {
+            throw new Exception("FTP server refused connection.");
+        }
+        // Login anonymously
+        if (!ftp.login("anonymous", "anonymous")){
+            throw new Exception("Invalid login.");
+        }
+        // Configure connection
+        ftp.enterLocalPassiveMode();
+        ftp.setFileType(FTP.BINARY_FILE_TYPE);
+        // Get file size
+        FTPFile[] files = ftp.listFiles(url.getPath());
+        if ((files.length != 1) || !files[0].isFile()){
+            throw new Exception("File not found on server: " + url.getPath());
+        }
+        contentLength = (int) files[0].getSize();
+        // Open target file
+        contentStream = ftp.retrieveFileStream(url.getPath());
+        return ftp;
+    }
+    
+    
+    private void openStreamHttp(Proxy proxy) throws Exception{
+        HttpURLConnection connection;
+        // Sometimes it takes 2 tries to correctly start the connection.
+        int attempts = 0;
+        while (true) {
+            connection = openConnectionHttp(proxy);
+            // Check for valid content length.
+            this.contentLength = connection.getContentLength();
+            attempts++;
+
+            if (this.contentLength >= 1) {
+                break;
+            } else if (attempts > 1) {
+                message = "Error: File is empty.";
+                throw new Exception("FileNotFound");
+            }                
+        }
+        this.contentStream = connection.getInputStream();
+    }
+
+    
+    private HttpURLConnection openConnectionHttp(Proxy proxy) throws Exception {
         // Open connection to URL
         HttpURLConnection connection;
         try {
@@ -233,7 +295,6 @@ public class BstDownload {
             message = "Error: File to download does not exist.";
             throw new Exception("FileNotFound");
         }
-        
         return connection;
     }
     

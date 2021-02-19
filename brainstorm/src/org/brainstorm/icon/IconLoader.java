@@ -138,6 +138,7 @@ public class IconLoader {
     public static final ImageIcon ICON_DISPLAY       = createImageIcon("icon/iconDisplay.gif");
     public static final ImageIcon ICON_DOCK          = createImageIcon("icon/iconDock.gif");
     public static final ImageIcon ICON_DOWNSAMPLE    = createImageIcon("icon/iconDownsample.gif");
+    public static final ImageIcon ICON_DOWNLOAD      = createImageIcon("icon/iconDownload.gif");
     public static final ImageIcon ICON_EDIT          = createImageIcon("icon/iconEdit.gif");
     public static final ImageIcon ICON_EXPLORER      = createImageIcon("icon/iconExplorer.gif");
     public static final ImageIcon ICON_TERMINAL      = createImageIcon("icon/iconTerminal.gif");
