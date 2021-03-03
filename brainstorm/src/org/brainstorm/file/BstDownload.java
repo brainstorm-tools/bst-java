@@ -31,39 +31,75 @@ public class BstDownload {
     private int contentLength = 0;
     private InputStream contentStream = null;
 
-    // Constructor
-    public BstDownload(String strUrl, String file, String title){
+    // Constructors
+    public BstDownload(String strUrl, String file, String title, String imgFile){
         // Create interface
-        init(title);
+        init(title, imgFile);
 
         // ===== COPY ARGUMENTS =====
         // Output filename
-        outputFile = file;
+        this.outputFile = file;
         // Input URL
         try{
-            url = createUrl(strUrl);
+            this.url = createUrl(strUrl);
+        }catch (Exception e){
+            System.out.println("Error: Invalid URL.");
         }
-        catch (Exception e){
-            jLabel.setText("Error: Invalid URL.");
-        }
+    }
+    
+    public BstDownload(String strUrl, String file, String title){
+        this(strUrl, file, title, null);
     }
 
     // Create interface
-    public void init(String title){
+    public void init(String title, String imgFile){
         // ===== CREATE DIALOG =====
         // Create progress bar dialog
         //jDialog = new JDialog((JFrame) null, "Brainstorm update", false);
         jDialog = new JFrame(title);
         jDialog.setAlwaysOnTop(true);
         jDialog.setResizable(false);
-        jDialog.setPreferredSize(new Dimension(350, 130));
+        if (imgFile == null){
+            jDialog.setPreferredSize(new Dimension(350, 130));
+        }
         // Create main progress bar panel
         jLabel = new JLabel("Connecting to server...");
         jProgressBar = new JProgressBar(0, 99);
         jProgressBar.setStringPainted(true);
-        JPanel jPanel = new JPanel(new RiverLayout());
-        jPanel.add("p hfill vfill", jLabel);
-        jPanel.add("p hfill", jProgressBar);
+        JPanel jPanel = new JPanel();
+        jPanel.setLayout(new GridBagLayout());
+        JLabel jImage = new JLabel();
+    
+        // Generic constraints
+        GridBagConstraints c = new GridBagConstraints();
+        c.fill = GridBagConstraints.BOTH;
+        c.gridx = 1;
+        c.weightx = 1;
+        // IMAGE
+        c.gridy = 1;
+        if (imgFile != null){
+            c.weighty = 1;
+            jImage.setIcon(new ImageIcon(imgFile));
+        }else{
+            c.weighty = 0;
+        }
+        c.insets = new Insets(0,0,0,0);
+        jPanel.add(jImage, c);
+        // TEXT
+        c.gridy = 2;
+        if (imgFile != null){
+            c.weighty = 0;
+        }else{
+            c.weighty = 1;
+        }
+        c.insets = new Insets(5,12,5,12);
+        jPanel.add(jLabel, c);
+        // PROGRESS BAR
+        c.gridy = 3;
+        c.weighty = 0;
+        c.insets = new Insets(0,12,9,12);
+        jPanel.add(jProgressBar, c);
+
         // Add the main Panel
         jDialog.getContentPane().add(jPanel);
         jDialog.pack();
@@ -72,7 +108,7 @@ public class BstDownload {
         jDialog.setVisible(true);
         jDialog.getContentPane().repaint();
         // Set icon
-        jDialog. setIconImage(org.brainstorm.icon.IconLoader.ICON_APP.getImage());
+        jDialog.setIconImage(org.brainstorm.icon.IconLoader.ICON_APP.getImage());
         // Set closing callback
         //Dialog.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         jDialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

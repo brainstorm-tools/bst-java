@@ -315,8 +315,9 @@ public class TestClass {
         //String srcUrl  = "http://neuroimage.usc.edu/bst/getupdate.php?c=UbsM09&nobin=1";
         //String srcUrl  = "https://github.com/csn-le/wave_clus/archive/master.zip";
         String srcUrl  = "ftp://neuroimage.usc.edu/pub/templates/Kabdebon_7w.zip";
-        final BstDownload bstDownload = new BstDownload(srcUrl, "C:\\Users\\franc\\Downloads\\test.zip", "Download test");
-        
+        final BstDownload bstDownload = new BstDownload(srcUrl, "C:\\Users\\franc\\Downloads\\test.zip", "Download test", "C:\\Work\\Dev\\brainstorm3\\doc\\plugins\\cat_logo.gif");
+        //final BstDownload bstDownload = new BstDownload(srcUrl, "C:\\Users\\franc\\Downloads\\test.zip", "Download test");
+
         bstDownload.download();
         // Wait for the termination of the thread
         try {
