@@ -109,6 +109,7 @@ public class IconLoader {
     public static final ImageIcon ICON_GOOD          = createImageIcon("icon/iconGood.gif");
     public static final ImageIcon ICON_BAD           = createImageIcon("icon/iconBad.gif");
     public static final ImageIcon ICON_GOODBAD       = createImageIcon("icon/iconGoodBad.gif");
+    public static final ImageIcon ICON_NEUTRAL       = createImageIcon("icon/iconNeutral.gif");
     
     // DataBase navigator
     public static final ImageIcon ICON_NEXT_SUBJECT   = createImageIcon("icon/iconNextSubject.gif");
