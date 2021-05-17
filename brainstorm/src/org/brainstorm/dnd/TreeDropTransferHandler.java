@@ -71,7 +71,7 @@ public class TreeDropTransferHandler extends TransferHandler {
                         type.equals("rawcondition")) {
                         // Remove [ ] blocks
                         newNode.setComment(strRemoveParenth(newNode.getComment(), '['));
-                    }else if (type.equals("condition")) {
+                    }else if (type.equals("condition") || type.equals("folder")) {
                         // Condition: set condition path as comment
                         newNode.setComment(newNode.getFileName());
                     }else{
