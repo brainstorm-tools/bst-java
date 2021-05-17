@@ -111,7 +111,8 @@ public class TreeDragTransferHandler extends TransferHandler {
                     !destType.equalsIgnoreCase("defaultstudy") &&
                     !destType.equalsIgnoreCase("condition") &&
                     !destType.equalsIgnoreCase("rawcondition") &&
-                    !destType.equalsIgnoreCase("subject")){
+                    !destType.equalsIgnoreCase("subject") &&
+                    !destType.equalsIgnoreCase("folder")){
                     return false;
                 }
                 // Fire change event
