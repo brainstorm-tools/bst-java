@@ -15,6 +15,8 @@ public class BstNode extends DefaultMutableTreeNode {
     boolean m_enabled = true;
     boolean m_marked = false;
     int     m_modifier = 0;
+    long    m_lastmodifiedtime = 0;
+    String  m_lastmodifieduser;
 
     // Constructor
     public BstNode(String nodeType, String nodeComment){
@@ -96,6 +98,20 @@ public class BstNode extends DefaultMutableTreeNode {
     }
     public void setModifier(int mod){
         this.m_modifier = mod;
+    }
+    
+    public void setLastModifiedTime(long mod) {
+        m_lastmodifiedtime = mod;
+    }
+    public long getLastModifiedTime() {
+        return m_lastmodifiedtime;
+    }
+    
+    public void setLastModifiedUser(String user) {
+        m_lastmodifieduser = user;
+    }
+    public String getLastModifiedUser() {
+        return m_lastmodifieduser;
     }
     
     public String toString(){
