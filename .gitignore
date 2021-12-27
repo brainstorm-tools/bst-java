@@ -1,4 +1,5 @@
 **.properties
 build-impl.xml
 /brainstorm/build/
-/brainstorm/dist/
+/brainstorm/dist/lib/
+/brainstorm/dist/README.txt
