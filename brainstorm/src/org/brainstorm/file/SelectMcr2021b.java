@@ -42,12 +42,11 @@ public class SelectMcr2021b {
         // Message box
         JOptionPane.showMessageDialog(null, 
                 "To execute the Brainstorm binaries, you need to install the\n" +
-                "Matlab Runtime 9.11 on your computer (MCR Matlab R2021b).\n\n" +
-                "The MCR is available from the Mathworks website:\n" + 
-                "> google \"download matlab mcr\".\n\n" + 
-                "Now, select the installation folder of the MCR 9.11. Examples:\n" +
+                "Matlab Runtime 9.11 on your computer (R2021b).\n\n" +
+                "The Runtime is available from the Mathworks website:\n" + 
+                "> google \"download matlab runtime\".\n\n" + 
+                "Now, select the installation folder of the Runtime 9.11. Examples:\n" +
                 "    - Linux:  /usr/local/Matlab_Runtime/v911\n" +
-                "    - Linux:  $HOME/MCR_R2021b\n" + 
                 "    - MacOSX: /Applications/MATLAB/MATLAB_Runtime/v911\n" +
                 "    - Windows: C:\\Program Files\\MATLAB\\MATLAB Runtime\\v911\n");
 

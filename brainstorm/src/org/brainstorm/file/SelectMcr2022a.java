@@ -6,9 +6,9 @@ import java.io.*;
 /**
  * @author Francois Tadel
  */
-public class SelectMcr2021a {
+public class SelectMcr2022a {
     // ===== CONSTRUCTOR =====
-    public SelectMcr2021a(){     
+    public SelectMcr2022a(){     
     }
     
     // ===== MAIN =====
@@ -16,7 +16,7 @@ public class SelectMcr2021a {
         // ===== READ $HOME/MATLABROOT.txt =====
         // Build filename
         String userDir = System.getProperty("user.home");
-        File confFile = new File(userDir + "/.brainstorm/MATLABROOT910.txt");
+        File confFile = new File(userDir + "/.brainstorm/MATLABROOT912.txt");
         String mcrDir = "";
         // Read file
         if (confFile.isFile()){
@@ -42,17 +42,17 @@ public class SelectMcr2021a {
         // Message box
         JOptionPane.showMessageDialog(null, 
                 "To execute the Brainstorm binaries, you need to install the\n" +
-                "Matlab Runtime 9.10 on your computer (R2021a).\n\n" +
+                "Matlab Runtime 9.12 on your computer (R2022a).\n\n" +
                 "The Runtime is available from the Mathworks website:\n" + 
                 "> google \"download matlab runtime\".\n\n" + 
-                "Now, select the installation folder of the Runtime 9.10. Examples:\n" +
-                "    - Linux:  /usr/local/Matlab_Runtime/v910\n" +
-                "    - MacOSX: /Applications/MATLAB/MATLAB_Runtime/v910\n" +
-                "    - Windows: C:\\Program Files\\MATLAB\\MATLAB Runtime\\v910\n");
+                "Now, select the installation folder of the Runtime 9.12. Examples:\n" +
+                "    - Linux:  /usr/local/Matlab_Runtime/v912\n" +
+                "    - MacOSX: /Applications/MATLAB/MATLAB_Runtime/v912\n" +
+                "    - Windows: C:\\Program Files\\MATLAB\\MATLAB Runtime\\v912\n");
 
         // Show dialog box
         JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setDialogTitle("Select Matlab Runtime folder (9.10)");
+        fileChooser.setDialogTitle("Select Matlab Runtime folder (9.12)");
         fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         fileChooser.setMultiSelectionEnabled(false);
         if (mcrDir.length() > 1){
@@ -76,7 +76,7 @@ public class SelectMcr2021a {
             !(new File(mcrDir + "/bin/win64/mcr.dll")).isFile() &&   
             !(new File(mcrDir + "/bin/glnx86/libnativedl.so")).isFile() &&  
             !(new File(mcrDir + "/bin/glnxa64/libnativedl.so")).isFile()){
-            JOptionPane.showMessageDialog(null, "Not a valid Matlab Runtime 9.9 installation folder");
+            JOptionPane.showMessageDialog(null, "Not a valid Matlab Runtime 9.12 installation folder");
             System.exit(-1);
         }
         
