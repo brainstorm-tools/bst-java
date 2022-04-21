@@ -135,16 +135,16 @@ public class BstCellRenderer extends JLabel implements TreeCellRenderer, TableCe
                 nodeIcon = IconLoader.ICON_DATA_LIST;
             // RAW DATA
             }else if(bstNode.getType().equalsIgnoreCase("rawdata")){
-                if (bstNode.getFileName().contains("_0ephys"))
-                    nodeIcon = IconLoader.ICON_SPIKE_SORTING;
-                else
-                    nodeIcon = IconLoader.ICON_RAW_DATA;
+                nodeIcon = IconLoader.ICON_RAW_DATA;
             }else if(bstNode.getType().equalsIgnoreCase("rawcondition")){
                 isCategoryNode = true;
                 if (expanded)
                     nodeIcon = IconLoader.ICON_RAW_FOLDER_OPEN;
                 else
                     nodeIcon = IconLoader.ICON_RAW_FOLDER_CLOSE;
+            // SPIKE
+            }else if(bstNode.getType().equalsIgnoreCase("spike")){
+                nodeIcon = IconLoader.ICON_SPIKE_SORTING;
             // RESULTS
             }else if(bstNode.getType().equalsIgnoreCase("results")){
                 nodeIcon = IconLoader.ICON_RESULT;
