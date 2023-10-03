@@ -1,5 +1,13 @@
-**.properties
-build-impl.xml
+# Brainstorm Java project
 /brainstorm/build/
 /brainstorm/dist/lib/
 /brainstorm/dist/README.txt
+/brainstorm/nbproject/build-impl.xml
+/brainstorm/nbproject/private/
+
+# Brainstorm Java runners 20XXv
+/brainstorm_run_20[0-9][0-9][a-b]/build/*
+/brainstorm_run_20[0-9][0-9][a-b]/dist/lib/
+/brainstorm_run_20[0-9][0-9][a-b]/dist/README.txt
+/brainstorm_run_20[0-9][0-9][a-b]/nbproject/build-impl.xml
+/brainstorm_run_20[0-9][0-9][a-b]/nbproject/private/
