@@ -165,6 +165,9 @@ public class BstCellRenderer extends JLabel implements TreeCellRenderer, TableCe
             // NOISECOV
             }else if(bstNode.getType().equalsIgnoreCase("noisecov")){
                 nodeIcon = IconLoader.ICON_NOISECOV;
+            // NDATACOV
+            }else if(bstNode.getType().equalsIgnoreCase("ndatacov")){
+                nodeIcon = IconLoader.ICON_NOISECOV;
             // DIPOLES
             }else if(bstNode.getType().equalsIgnoreCase("dipoles")){
                 nodeIcon = IconLoader.ICON_DIPOLES;

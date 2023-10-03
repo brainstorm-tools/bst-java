@@ -301,6 +301,10 @@ public class BstNode extends DefaultMutableTreeNode {
         }else if(this.getType().equalsIgnoreCase("noisecov")){
             strIndices = "<HTML><TABLE><TR><TD align=right><B>Noise covariance matrix</B>: </TD><TD>" + this.m_fileName + "</TD></TR></TABLE></HTML>";
 
+        // NDATACOV
+        }else if(this.getType().equalsIgnoreCase("ndatacov")){
+            strIndices = "<HTML><TABLE><TR><TD align=right><B>Data covariance matrix</B>: </TD><TD>" + this.m_fileName + "</TD></TR></TABLE></HTML>";
+
         // DIPOLES
         }else if(this.getType().equalsIgnoreCase("dipoles")){
             strIndices = "<HTML><TABLE><TR><TD align=right><B>Dipoles</B>: </TD><TD>" + String.format("Study #%1$d - Dipoles #%2$d", this.m_studyIndex, this.m_itemIndex) + "</TD></TR>" +

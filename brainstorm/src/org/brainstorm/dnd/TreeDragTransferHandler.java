@@ -93,6 +93,7 @@ public class TreeDragTransferHandler extends TransferHandler {
                     !srcType.equalsIgnoreCase("dipoles") &&
                     !srcType.equalsIgnoreCase("channel") &&
                     !srcType.equalsIgnoreCase("noisecov") &&
+                    !srcType.equalsIgnoreCase("ndatacov") &&
                     !srcType.equalsIgnoreCase("headmodel") &&
                     !srcType.equalsIgnoreCase("tess") &&
                     !srcType.equalsIgnoreCase("other") &&
