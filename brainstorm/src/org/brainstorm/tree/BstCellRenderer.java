@@ -80,6 +80,9 @@ public class BstCellRenderer extends JLabel implements TreeCellRenderer, TableCe
             // VOLATLAS
             }else if(bstNode.getType().equalsIgnoreCase("volatlas")){
                 nodeIcon = IconLoader.ICON_VOLATLAS;
+            // CT
+            }else if(bstNode.getType().equalsIgnoreCase("volct")){
+                nodeIcon = IconLoader.ICON_VOLCT;
             // SURFACES
             }else if(bstNode.getType().equalsIgnoreCase("surface")){
                 nodeIcon = IconLoader.ICON_SURFACE;
