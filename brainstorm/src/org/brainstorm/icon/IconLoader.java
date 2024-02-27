@@ -20,6 +20,7 @@ public class IconLoader {
     public static final ImageIcon ICON_SUBJECT      = createImageIcon("icon/iconSubject.gif");
     public static final ImageIcon ICON_ANATOMY      = createImageIcon("icon/iconMri.gif");
     public static final ImageIcon ICON_VOLATLAS     = createImageIcon("icon/iconMriAtlas.gif");
+    public static final ImageIcon ICON_VOLCT        = createImageIcon("icon/iconCt.gif");
     public static final ImageIcon ICON_SURFACE      = createImageIcon("icon/iconSurface.gif");
     public static final ImageIcon ICON_SURFACE_CORTEX     = createImageIcon("icon/iconCortexCut.gif");
     public static final ImageIcon ICON_SURFACE_SCALP      = createImageIcon("icon/iconScalp.gif");
