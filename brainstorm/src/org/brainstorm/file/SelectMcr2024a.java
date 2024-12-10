@@ -6,17 +6,17 @@ import java.io.*;
 /**
  * @author Francois Tadel
  */
-public class SelectMcr2023b {
+public class SelectMcr2024a {
     // ===== CONSTRUCTOR =====
-    public SelectMcr2023b(){     
+    public SelectMcr2024a(){
     }
-    
+
     // ===== MAIN =====
     public static void main(String[] args) throws Exception {
         // ===== READ $HOME/MATLABROOT.txt =====
         // Build filename
         String userDir = System.getProperty("user.home");
-        File confFile = new File(userDir + "/.brainstorm/MATLABROOT2302.txt");
+        File confFile = new File(userDir + "/.brainstorm/MATLABROOT2401.txt");
         String mcrDir = "";
         // Read file
         if (confFile.isFile()){
@@ -37,22 +37,22 @@ public class SelectMcr2023b {
             UIManager.setLookAndFeel(
             UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e){
-            
+
         }
         // Message box
-        JOptionPane.showMessageDialog(null, 
+        JOptionPane.showMessageDialog(null,
                 "To execute the Brainstorm binaries, you need to install the\n" +
-                "Matlab Runtime 23.2 on your computer (R2023b).\n\n" +
-                "The Runtime is available from the Mathworks website:\n" + 
-                "> google \"download matlab runtime\".\n\n" + 
-                "Now, select the installation folder of the Runtime 23.2. Examples:\n" +
-                "    - Linux:  /usr/local/MATLAB/MATLAB_Runtime/R2023b\n" +
-                "    - MacOSX: /Applications/MATLAB/MATLAB_Runtime/R2023b\n" +
-                "    - Windows: C:\\Program Files\\MATLAB\\MATLAB Runtime\\R2023b\n");
+                "Matlab Runtime 24.1 on your computer (R2024a).\n\n" +
+                "The Runtime is available from the Mathworks website:\n" +
+                "> google \"download matlab runtime\".\n\n" +
+                "Now, select the installation folder of the Runtime 24.1. Examples:\n" +
+                "    - Linux:  /usr/local/MATLAB/MATLAB_Runtime/R2024a\n" +
+                "    - MacOSX: /Applications/MATLAB/MATLAB_Runtime/R2024a\n" +
+                "    - Windows: C:\\Program Files\\MATLAB\\MATLAB Runtime\\R2024a\n");
 
         // Show dialog box
         JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setDialogTitle("Select Matlab Runtime folder (23.2)");
+        fileChooser.setDialogTitle("Select Matlab Runtime folder (24.1)");
         fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         fileChooser.setMultiSelectionEnabled(false);
         if (mcrDir.length() > 1){
@@ -68,18 +68,18 @@ public class SelectMcr2023b {
         if (mcrDir.length() == 0){
             System.exit(-1);
         }
-        
+
         // ===== DETECT MCR =====
         if (!(new File(mcrDir + "/bin/maci64/libnativedl.jnilib")).isFile() &&
             !(new File(mcrDir + "/bin/maci64/libnativedl.dylib")).isFile() &&
             !(new File(mcrDir + "/bin/win32/mcr.dll")).isFile() &&
-            !(new File(mcrDir + "/bin/win64/mcr.dll")).isFile() &&   
-            !(new File(mcrDir + "/bin/glnx86/libnativedl.so")).isFile() &&  
+            !(new File(mcrDir + "/bin/win64/mcr.dll")).isFile() &&
+            !(new File(mcrDir + "/bin/glnx86/libnativedl.so")).isFile() &&
             !(new File(mcrDir + "/bin/glnxa64/libnativedl.so")).isFile()){
-            JOptionPane.showMessageDialog(null, "Not a valid Matlab Runtime 23.2 installation folder");
+            JOptionPane.showMessageDialog(null, "Not a valid Matlab Runtime 24.1 installation folder");
             System.exit(-1);
         }
-        
+
         // ===== SAVE RESULT IN FILE =====
         // Create folder if necessary
         try {
