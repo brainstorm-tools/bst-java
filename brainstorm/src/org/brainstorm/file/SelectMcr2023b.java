@@ -42,10 +42,10 @@ public class SelectMcr2023b {
         // Message box
         JOptionPane.showMessageDialog(null, 
                 "To execute the Brainstorm binaries, you need to install the\n" +
-                "Matlab Runtime 23.02 on your computer (R2023b).\n\n" +
+                "Matlab Runtime 23.2 on your computer (R2023b).\n\n" +
                 "The Runtime is available from the Mathworks website:\n" + 
                 "> google \"download matlab runtime\".\n\n" + 
-                "Now, select the installation folder of the Runtime 23.02. Examples:\n" +
+                "Now, select the installation folder of the Runtime 23.2. Examples:\n" +
                 "    - Linux:  /usr/local/MATLAB/MATLAB_Runtime/R2023b\n" +
                 "    - MacOSX: /Applications/MATLAB/MATLAB_Runtime/R2023b\n" +
                 "    - Windows: C:\\Program Files\\MATLAB\\MATLAB Runtime\\R2023b\n");
