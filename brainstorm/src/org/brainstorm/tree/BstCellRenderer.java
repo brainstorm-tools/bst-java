@@ -83,6 +83,9 @@ public class BstCellRenderer extends JLabel implements TreeCellRenderer, TableCe
             // CT
             }else if(bstNode.getType().equalsIgnoreCase("volct")){
                 nodeIcon = IconLoader.ICON_VOLCT;
+            // PET
+            }else if(bstNode.getType().equalsIgnoreCase("volpet")){
+                nodeIcon = IconLoader.ICON_VOLPET;
             // SURFACES
             }else if(bstNode.getType().equalsIgnoreCase("surface")){
                 nodeIcon = IconLoader.ICON_SURFACE;
