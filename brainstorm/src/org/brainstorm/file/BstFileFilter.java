@@ -5,6 +5,7 @@ import javax.swing.filechooser.*;
 
 /**
  * @author Francois Tadel
+ * @author Raymundo Cassani
  */
 public class BstFileFilter extends FileFilter {
     String  []suffixes;
@@ -56,16 +57,16 @@ public class BstFileFilter extends FileFilter {
      //    - '_' : look for a tag (a part of the filename and a '.mat' extension
      //    - Else: look for a whole file name (extension included)
      while (!isAccepted && (i < this.suffixes.length)){
-         // EXTENSION
-         if (this.suffixes[i].charAt(0) == '.'){
-             // suffixe extension must match the file extension (or can be '*')
-             if (fileExt.equalsIgnoreCase(this.suffixes[i]) || (this.suffixes[i].charAt(1) == '*')){
-                 isAccepted = true;
-             }
-         // TAG
-         }else if (this.suffixes[i].charAt(0) == '_'){
+        // BST TAG
+         if (this.formatName.equalsIgnoreCase("bst") && (this.suffixes[i].charAt(0) == '_') && (!this.suffixes[i].contains("."))){
              // File extention must be '.mat' and FileName must contain suffixe
              if ((fileExt.equalsIgnoreCase(".mat")) && (fileName.toLowerCase().indexOf(this.suffixes[i].substring(1).toLowerCase()) != -1)){
+                 isAccepted = true;
+             }
+         // EXTENSION
+         }else if ((this.suffixes[i].charAt(0) == '.') || (this.suffixes[i].charAt(0) == '_')){
+             // suffixe extension must match the file extension (or can be '*')
+             if (fileExt.equalsIgnoreCase(this.suffixes[i]) || (this.suffixes[i].charAt(1) == '*') || fileName.endsWith(this.suffixes[i])) {
                  isAccepted = true;
              }
          // ANYTHING
