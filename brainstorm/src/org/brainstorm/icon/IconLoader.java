@@ -266,7 +266,11 @@ public class IconLoader {
     public static final ImageIcon ICON_PLUS              = createImageIcon("icon/iconPlus.gif");
     public static final ImageIcon ICON_MINUS             = createImageIcon("icon/iconMinus.gif");
     public static final ImageIcon ICON_SEEG_SPHERE       = createImageIcon("icon/iconSeegSphere.gif");
+    public static final ImageIcon ICON_SEEG_SPHERE_PLUS  = createImageIcon("icon/iconSeegSpherePlus.gif");
+    public static final ImageIcon ICON_SEEG_SPHERE_MINUS = createImageIcon("icon/iconSeegSphereMinus.gif");
     public static final ImageIcon ICON_SEEG_DEPTH        = createImageIcon("icon/iconSeegDepth.gif");
+    public static final ImageIcon ICON_SEEG_DEPTH_PLUS   = createImageIcon("icon/iconSeegDepthPlus.gif");
+    public static final ImageIcon ICON_SEEG_DEPTH_MINUS  = createImageIcon("icon/iconSeegDepthMinus.gif");
     public static final ImageIcon ICON_PLOTLY            = createImageIcon("icon/iconPlotly.gif");
     public static final ImageIcon ICON_SPIKE_SORTING     = createImageIcon("icon/iconSpikeSorting.gif");
     
