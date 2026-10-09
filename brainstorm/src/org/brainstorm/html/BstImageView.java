@@ -18,8 +18,7 @@ import javax.swing.*;
 import javax.swing.text.*;
 import javax.swing.event.*;
 import javax.swing.text.html.*;
-import sun.misc.BASE64Decoder;
-
+import java.util.Base64;
 /*
 
 
@@ -1005,8 +1004,8 @@ public class BstImageView extends View {
             BufferedImage newBufferedImage = null;
 
             try {
-                BASE64Decoder decoder = new BASE64Decoder();
-                ByteArrayInputStream bais = new ByteArrayInputStream(decoder.decodeBuffer(b64));
+                Base64.Decoder decoder = Base64.getMimeDecoder();
+                ByteArrayInputStream bais = new ByteArrayInputStream(decoder.decode(b64));
                 newBufferedImage = ImageIO.read(bais);
             } catch (IOException ex) {
                 System.out.println("[ERROR] in loadImage() \n\t" + ex);
